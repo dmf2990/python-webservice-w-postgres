@@ -33,12 +33,14 @@ for x in fruits:
 # Create new github repo > get url for repo > git init > git add > git commit -m "" > 
 # git remote add origin <url> > set upstream > git push
 
+a = 200
+b = 33
+i = 1
+
 #if statement
 if a > b: print("a is greater than b")
 
 #if elseif else long version
-a = 200
-b = 33
 if b > a:
   print("b is greater than a")
 elif a == b:
@@ -46,9 +48,16 @@ elif a == b:
 else:
   print("a is greater than b")
 
-
 #while loop
-i = 1
+
 while i < 6:
   print(i)
   i += 1
+
+
+# iterate list backwards
+for c in reversed(fruits):
+     print(c)
+
+
+print("you are here")
