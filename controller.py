@@ -1,34 +1,53 @@
 # # https://www.youtube.com/watch?v=6M3LzGmIAso
-from flask import Flask, Response, render_template
+from flask import Flask, Response, jsonify, render_template, redirect, url_for
+import requests
 
 app = Flask(__name__)
 @app.route("/")
 def home():
-    return "this will render"
-  #  render_template('index.html')
+   return render_template("index.html")
 
 # carrots mean we pass whatever value is in endpoint and pass to function below
 # we can type anything in the end point and it will render as a result
-@app.route("/<name>")
-def user(name):
-    return f"Hello {name}!"
-# # if __name__ == "__controller__":
-# #     app.run(host="127.0.0.1", port=8080, debug=True)
+# @app.route("/<name>")
+# def user(name):
+#     return f"Hello {name}!"
+
+#to redirect someone to a diferent page
+# import "redirect" and "url_for" these allow
+# us to return a redirect from a function
+# admin login page example
+@app.route("/admin")
+def adminRedirectExample():
+    return redirect(url_for("home"))
+
+
+#GET request 
+@app.route('/joke')
+def get_data():
+    resp = requests.get('https://icanhazdadjoke.com/').content
+    print(resp)
+    return resp
+
+#Function 5: pass variable from endpoint to html this way
+@app.route("/<inputThis>")
+def passVarThruEndpointToHtml(inputThis):
+   return render_template("index.html", htmlVariable=inputThis)
+
+
+#Function 6 show a list of items in html
+@app.route("/asdf/<enterWhatever>")
+def passListToHtml(enterWhatever):
+   return render_template("index.html", htmlList=["Loanstar", "barf", "lord helmet"])
 
 
 
-# https://www.youtube.com/watch?v=mqhxxeeTbu0
 
+# https://www.youtube.com/watch?v=9MHYHgh4jYc
 
-
-
-
-
-
-
-
-
-
+# TODO: rig up postgres, pass a value from front to db. https://www.youtube.com/watch?v=M2NzvnfS-hI
+# TODO: grab field from db, show to user
+# TODO: parse out json from crazy html payload
 
 
 
