@@ -1,0 +1,19 @@
+<html>
+ <body>
+  <h1>
+    Hello HTML Page
+  </h1>
+  <!-- Basic dynamic html variable -->
+  <p>{{htmlVariable}}</p>
+  <!--function 5 below:  Can also do this to write python code within html, maybe need to iterate list -->
+ <!-- {% for x in range(10) %}
+ {% if x % 2 == 1 %}
+ <p>{{x}}</p>
+ {% endif %}
+ {% endfor %} -->
+ <!--funciton 6 below: show a list of items -->
+ {% for x in htmlList %}
+ <p>{{x}}</p>
+ {% endfor %}
+</body>
+</html>
